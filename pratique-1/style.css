@@ -1,0 +1,63 @@
+/*
+ * Cyrille
+ * Inspired by https://tailwindcss.com/
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-shrink-0 {
+    flex-shrink: 0;
+}
+.flex-auto {
+    flex: 1 0 auto;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.justify-around {
+    justify-content: space-around;
+}
+
+.bg-red-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
+}
+.bg-green-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+}
+.bg-blue-100 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
+}
+.bg-pink-300 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(249, 168, 212, var(--tw-bg-opacity));
+}
+
+.p-4 {
+    padding: 1rem;
+}
+.p-6 {
+    padding: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
