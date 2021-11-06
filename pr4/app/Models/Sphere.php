@@ -9,16 +9,20 @@ class Sphere extends Model
 {
     use HasFactory;
 
+    protected $table = 'calculations';
+
+    public $timestamps = false;
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     protected $fillable = [
         'R',
     ];
 
     protected $casts = [
         'R' => 'float',
-    ];
-
-    protected $appends = [
-        'V',
     ];
 
     public function getVAttribute()
