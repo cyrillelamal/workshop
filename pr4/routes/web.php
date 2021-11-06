@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Requests\SphereRequest;
+use App\Models\Sphere;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +25,8 @@ Route::get('/foo', function() {
     return [
         'bar' => 'I am the second endpoint!',
     ];
+});
+
+Route::post('/sphere', function(SphereRequest $request) {
+    return new Sphere($request->validated());
 });
