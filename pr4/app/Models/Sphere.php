@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\Uid\Uuid;
 
 class Sphere extends Model
 {
@@ -24,6 +25,18 @@ class Sphere extends Model
     protected $casts = [
         'R' => 'float',
     ];
+
+    public static function booted()
+    {
+        static::creating(function(Sphere $sphere) {
+            $sphere->id = (string)Uuid::v4();
+            $sphere['V'] = $sphere->V;
+        });
+
+        static::saving(function(Sphere $sphere) {
+            $sphere['V'] = $sphere->V;
+        });
+    }
 
     public function getVAttribute()
     {

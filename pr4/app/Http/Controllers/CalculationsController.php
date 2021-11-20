@@ -10,14 +10,7 @@ class CalculationsController extends Controller
 {
     public function store(SphereRequest $request): Sphere
     {
-        $sphere = new Sphere($request->validated());
-
-        $sphere->id = (string)Uuid::v4();
-        $sphere->V = $sphere->getVAttribute();
-
-        $sphere->save();
-
-        return $sphere;
+        return Sphere::create($request->validated());
     }
 
     public function show(string $uuid): Sphere
@@ -30,10 +23,7 @@ class CalculationsController extends Controller
         /** @var Sphere $sphere */
         $sphere = Sphere::query()->where('id', $uuid)->firstOrFail();
 
-        $sphere->R = $request->get('R');
-        $sphere->V = $sphere->getVAttribute();
-
-        $sphere->save();
+        $sphere->update($request->validated());
 
         return $sphere;
     }
